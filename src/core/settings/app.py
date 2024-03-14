@@ -3,8 +3,8 @@ import sys
 from typing import Any, Dict, List, Tuple
 from loguru import logger
 from pydantic import SecretStr
-from src.core.logging import InterceptHandler
-from src.core.settings.base import BaseAppSettings 
+from core.logging import InterceptHandler
+from core.settings.base import BaseAppSettings 
 
 class AppSettings(BaseAppSettings):
     debug: bool = False

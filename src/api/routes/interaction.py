@@ -1,11 +1,11 @@
 from fastapi import APIRouter,Depends 
 from loguru import logger 
 
-from src.api.models.InteractionAnalyzerRequest  import InteractionAnalyzerRequestModel
-from src.api.models.InteractionAnalyzerResponse import InteractionAnalyzerResponseModel
-from src.api.models.InsigntsModel import InsigntsModel
-from src.core.settings.app import AppSettings
-from src.core.config import get_app_settings
+from api.models.InteractionAnalyzerRequest  import InteractionAnalyzerRequestModel
+from api.models.InteractionAnalyzerResponse import InteractionAnalyzerResponseModel
+from api.models.InsigntsModel import InsigntsModel
+from core.settings.app import AppSettings
+from core.config import get_app_settings
 router = APIRouter(
     tags=['audio']
 )
