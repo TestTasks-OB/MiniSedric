@@ -37,6 +37,9 @@ class AppSettings(BaseAppSettings):
         }
 
     def configure_env(self)->None: 
+        """
+        configuring environments  from env stores
+        """
         pass
     
     def configure_logging(self) -> None:
