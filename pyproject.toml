@@ -14,11 +14,13 @@ python-dotenv = "^1.0.1"
 uvicorn = "^0.28.0"
 loguru = "^0.7.2"
 pydantic-settings = "^2.2.1"
-mangum = "^0.17.0"
-spacy = "^3.7.4"
+mangum = "^0.17.0" 
 boto3 = "^1.34.63"
-
+requests = "^2.31.0"
+nltk = "*"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+ 

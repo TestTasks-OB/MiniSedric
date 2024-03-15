@@ -6,6 +6,7 @@ from api.models.InteractionAnalyzerResponse import InteractionAnalyzerResponseMo
 from api.models.InsigntsModel import InsigntsModel
 from core.settings.app import AppSettings
 from core.config import get_app_settings
+from services.analyze_interaction import analyze_interaction 
 router = APIRouter(
     tags=['audio']
 )
@@ -22,9 +23,10 @@ async def interaction_url(
                         ,   settings: AppSettings = Depends(get_app_settings)):
     """
         analyze human interactions
-    """  
-    row_test = InsigntsModel(sentence_index=1,start_word_index=1,end_word_index=1,tracker_value="hi",transcribe_value="world")
+    """   
+    result = await analyze_interaction(input_data)
+    logger.info(result)
     response = InteractionAnalyzerResponseModel( 
-           insignts=[row_test]
+           insignts=result
         )  
     return response 

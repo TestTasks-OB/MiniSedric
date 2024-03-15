@@ -29,7 +29,7 @@ resource "aws_lambda_function" "api" {
   image_uri        = "${aws_ecr_repository.api.repository_url}:latest"
   package_type     = "Image"
   source_code_hash = trimprefix(data.aws_ecr_image.latest.id, "sha256:")
-  timeout          = 10
+  timeout          = 900
 
   environment {
     variables = {
