@@ -35,6 +35,8 @@ resource "aws_lambda_function" "api" {
     variables = {
       SECRET_KEY = "test_minisedric"
       ENV = "test"
+      S3_BUCKET_URI  = "s3://${aws_s3_bucket.minisedric_store.bucket}/"
+      S3_BUCKET_NAME  = "${aws_s3_bucket.minisedric_store.bucket}"
     }
   }
 

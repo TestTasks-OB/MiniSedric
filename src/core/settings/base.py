@@ -19,6 +19,9 @@ class BaseAppSettings(BaseSettings):
     AWS_DEFAULT_REGION: str = Field(default_factory=lambda: os.environ['AWS_DEFAULT_REGION']) 
     tf_var_docker_token: str = Field(default="")
     tf_var_docker_login: str = Field(default="")
+    BUCKET_NAME: str = Field(default_factory=lambda: os.environ.get('S3_BUCKET_NAME','')) 
+    BUCKET_URI: str = Field(default_factory=lambda: os.environ.get('S3_BUCKET_URI','')) 
     class Config:
         env_file = ENV_PATH
+        extra = "allow"
         

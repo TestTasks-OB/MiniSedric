@@ -7,7 +7,7 @@ from api.models.InteractionAnalyzerRequest  import InteractionAnalyzerRequestMod
 import nltk
 from nltk.tokenize import sent_tokenize, word_tokenize
 from api.models.InsigntsModel import InsigntsModel
-from typing import List
+from typing import List 
 
 transcribe_client = boto3.client('transcribe') 
 
@@ -39,7 +39,7 @@ async def analyze_interaction(data:InteractionAnalyzerRequestModel)->List[Insign
     logger.info(transcript_data)
     transcript_text = transcript_data['results']['transcripts'][0]['transcript']
     logger.info(transcript_text)
-    insights = []
+    insignts = []
     sentences = sent_tokenize(transcript_text) 
     for i, sentence in enumerate(sentences): 
         words = word_tokenize(sentence) 
@@ -53,7 +53,7 @@ async def analyze_interaction(data:InteractionAnalyzerRequestModel)->List[Insign
                                         ,   end_word_index=end_word_index
                                         ,   tracker_value=tracker
                                         ,   transcribe_value=sentence) 
-                insights.append(insight)
-    logger.info(insights)
-    return insights 
+                insignts.append(insight)
+    logger.info(insignts)
+    return insignts 
 
