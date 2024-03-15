@@ -21,7 +21,7 @@ async def interaction_url(
                             input_data: InteractionAnalyzerRequestModel
                         ,   settings: AppSettings = Depends(get_app_settings)):
     """
-         Change password for the user by his request 
+        analyze human interactions
     """  
     row_test = InsigntsModel(sentence_index=1,start_word_index=1,end_word_index=1,tracker_value="hi",transcribe_value="world")
     response = InteractionAnalyzerResponseModel( 
