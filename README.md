@@ -1,7 +1,12 @@
 
 
-# Build infrastructure 
 
+# Build infrastructure 
+## Architecture 
+
+
+```{include} docs/architecture.md
+```
 ## AWS profiles configuration
 you need to configure aws profile locally to run terraform configuration 
 
@@ -26,20 +31,24 @@ aws configure list-profiles
 ## Commands to build infrastructure 
 build 
 ```shell
-terraform validate && terraform apply                                                                                                                                                                                                            crudAPP miniforge3-4.10 at 09:29:08
+terraform validate && terraform apply 
 ```
  
-destroy 
+to destroy 
 ```shell
 terraform destroy      
 ```
 
 
-## Build locally 
+> [!TIP]
+> Some of the resources with data may not be destroyed automatically (for example s3 with data)
+
+# Testing 
+## Build locally docker 
 
 Check call 
 ```shell
-curl -XPOST "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{}'      
+curl -XPOST "http://localhost:9000" -d '{}'      
 ```
 
 Docker run image 
@@ -51,3 +60,17 @@ Docker build
 ```shell
 docker build --platform linux/amd64 -t URL/minisedric-lambda-api:latest -f ./DockerfileLambda ./                               
 ```
+
+## Locally run through poetry in virtualvenv
+
+### Run
+```shell
+poetry run uvicorn main:app --reload --app-dir src
+```
+
+### Add dependencies
+
+```shell
+poetry add package_name
+```
+
