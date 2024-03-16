@@ -3,10 +3,8 @@
 
 # Build infrastructure 
 ## Architecture 
+[Digram](./docs/architecture.md)
 
-
-```{include} docs/architecture.md
-```
 ## AWS profiles configuration
 you need to configure aws profile locally to run terraform configuration 
 
