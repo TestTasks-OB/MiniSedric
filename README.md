@@ -24,9 +24,28 @@ to check if profiles is configured
 ```shell 
 aws configure list-profiles           
 ```
+## Python .env 
 
+Add keys in file .env in root directory 
+```
+SECRET_KEY=test
+ENV=test
+```
+for local  testing
+```
+AWS_ACCESS_KEY_ID=1
+AWS_SECRET_ACCESS_KEY=1
+AWS_DEFAULT_REGION=1 
+S3_BUCKET_NAME=s3test
+S3_BUCKET_URI=s3
+```
 
 ## Commands to build infrastructure 
+run in directory where env is
+```shell
+cd ./infrastructure/test
+```
+
 build 
 ```shell
 terraform validate && terraform apply 
@@ -71,4 +90,8 @@ poetry run uvicorn main:app --reload --app-dir src
 ```shell
 poetry add package_name
 ```
+ 
 
+## Documentation 
+
+Swagger is automatically on /docs page. 
